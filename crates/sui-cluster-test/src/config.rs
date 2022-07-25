@@ -6,6 +6,7 @@ use clap::*;
 pub enum Env {
     DevNet,
     Staging,
+    Continuous,
     CustomRemote,
     NewLocal,
 }

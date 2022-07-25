@@ -25,6 +25,7 @@ impl FaucetClientFactory {
         match (&options.env, faucet_url) {
             (Env::NewLocal, None) => Arc::new(DummyFaucetClient::new()),
             (Env::DevNet, Some(url)) => Arc::new(RemoteFaucetClient::new(url)),
+            (Env::Continuous, Some(url)) => Arc::new(RemoteFaucetClient::new(url)),
             (Env::Staging, Some(url)) => Arc::new(RemoteFaucetClient::new(url)),
             (Env::CustomRemote, Some(url)) => Arc::new(RemoteFaucetClient::new(url)),
             _ => panic!("Unallowed combination of parameters."),

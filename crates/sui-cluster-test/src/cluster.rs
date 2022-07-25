@@ -12,10 +12,13 @@ use test_utils::network::{start_rpc_test_network_with_fullnode, TestNetwork};
 
 const DEVNET_FAUCET_ADDR: &str = "https://faucet.devnet.sui.io:443";
 const STAGING_FAUCET_ADDR: &str = "https://faucet.staging.sui.io:443";
+const CONTINUOUS_FAUCET_ADDR: &str = "https://faucet.continuous.sui.io:443";
 const DEVNET_GATEWAY_ADDR: &str = "https://gateway.devnet.sui.io:443";
 const STAGING_GATEWAY_ADDR: &str = "https://gateway.staging.sui.io:443";
+const CONTINUOUS_GATEWAY_ADDR: &str = "https://gateway.continuous.sui.io:443";
 const DEVNET_FULLNODE_ADDR: &str = "https://fullnode.devnet.sui.io:443";
 const STAGING_FULLNODE_ADDR: &str = "https://fullnode.staging.sui.io:443";
+const CONTINUOUS_FULLNODE_ADDR: &str = "https://fullnode.continuous.sui.io:443";
 
 pub struct ClusterFactory;
 
@@ -63,6 +66,11 @@ impl Cluster for RemoteRunningCluster {
                 String::from(STAGING_GATEWAY_ADDR),
                 String::from(STAGING_FAUCET_ADDR),
                 String::from(STAGING_FULLNODE_ADDR),
+            ),
+            Env::Continuous => (
+                String::from(CONTINUOUS_GATEWAY_ADDR),
+                String::from(CONTINUOUS_FAUCET_ADDR),
+                String::from(CONTINUOUS_FULLNODE_ADDR),
             ),
             Env::CustomRemote => (
                 options
